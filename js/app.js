@@ -52,8 +52,9 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
+    const userImage = post.userImage;
     const image = post.image;
-    console.log(post.userImage);
+    console.log(post?.comments[0]?.user);
     // const image = post;
     const div = document.createElement( "article" );
     div.classList.add( "post" );
@@ -65,7 +66,7 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="${post.userImage}" alt="User Picture" />
+                    <img src="${userImage}" alt="User Picture" />
                   </a>
                   <a href="#" class="post__user">phero</a>
                 </div>
@@ -123,7 +124,7 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                          ${post?.comments[0]?.user}
                       </a>
                       ${post.comments?.text}
                     </small>
